@@ -3,9 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/listNewsFragment">
+    app:startDestination="@id/StartFragment">
     <fragment
         android:id="@+id/listNewsFragment"
         android:name="com.example.litelentanews.ui.listnews.ListNewsFragment"
-        android:label="ListNewsFragment"/>
+        android:label="{categoryName}">
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <argument
+            android:name="className"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listNewsCategoriesFragment"
+        android:label="Categories"
+        android:name="com.example.litelentanews.ui.categorynews.ListNewsCategoriesFragment"
+        tools:layout="@layout/fragment_list_news_categories" >
+        <action
+            android:id="@+id/action_listNewsCategoriesFragment_to_listNewsFragment"
+            app:destination="@id/listNewsFragment"
+            />
+        <argument
+            android:name="dataClass"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listNewsCategoriesFragment_to_listNewsFragment_variant"
+            app:destination="@id/listNewsFragment_AllList"
+            app:popUpTo="@id/StartFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/StartFragment"
+        android:label="News sites"
+        android:name="com.example.litelentanews.ui.start.StartFragment">
+        <action
+            android:id="@+id/action_StartFragment_to_listNewsCategoriesFragment"
+            app:destination="@id/listNewsCategoriesFragment" />
+        <action
+            android:id="@+id/action_StartFragment_to_listNewsFragment_AllList"
+            app:destination="@id/listNewsFragment_AllList" />
+    </fragment>
+    <fragment
+        android:id="@+id/listNewsFragment_AllList"
+        android:name="com.example.litelentanews.ui.listnews.ListNewsFragment">
+    <argument
+        android:name="categoryName"
+        app:argType="string" />
+    <argument
+        android:name="className"
+        app:argType="string"/>
+        <action
+            android:id="@+id/action_listNewsFragment_AllList_to_listNewsCategoriesFragment"
+            app:destination="@id/listNewsCategoriesFragment"
+            app:popUpTo="@id/StartFragment"/>
+    </fragment>
 </navigation>

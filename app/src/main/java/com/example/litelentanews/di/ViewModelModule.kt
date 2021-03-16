@@ -3,7 +3,9 @@ package com.example.litelentanews.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.litelentanews.ui.ViewModelFactory
-import com.example.litelentanews.ui.listnews.ListNewsViewModel
+import com.example.litelentanews.ui.categorynews.ListNewsCategoriesViewModel
+import com.example.litelentanews.ui.listnews.NewsViewModel
+import com.example.litelentanews.ui.start.StartViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -26,6 +28,16 @@ interface ViewModelModule{
 
     @IntoMap
     @Binds
-    @ViewModelKey(ListNewsViewModel::class)
-    fun bindListNewsViewModel(viewModel: ListNewsViewModel):ViewModel
+    @ViewModelKey(NewsViewModel::class)
+    fun bindListNewsViewModel(viewModel: NewsViewModel):ViewModel
+
+    @IntoMap
+    @Binds
+    @ViewModelKey(ListNewsCategoriesViewModel::class)
+    fun bindListNewsCategoriesViewModel(viewModel: ListNewsCategoriesViewModel):ViewModel
+
+    @IntoMap
+    @Binds
+    @ViewModelKey(StartViewModel::class)
+    fun bindStartViewModel(viewModel: StartViewModel):ViewModel
 }

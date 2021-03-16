@@ -11,15 +11,13 @@ import javax.inject.Singleton
     AndroidInjectionModule::class,
     AppModule::class,
     FragmentModule::class,
-    ViewModelModule::class]
+    ViewModelModule::class,
+    UseCaseModule::class,
+    RepoModule::class,
+    DataSourceModule::class]
 )
 @Singleton
 interface AppComponent: AndroidInjector<MainApplication>{
     @Component.Factory
     interface Factory: AndroidInjector.Factory<MainApplication>
-
 }
-
-@Scope
-@Retention(AnnotationRetention.RUNTIME)
-annotation class FeatureScope

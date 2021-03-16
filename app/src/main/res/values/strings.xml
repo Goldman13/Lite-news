@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Lite lenta news</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_list_empty">News list is empty</string>
+    <string name="dialogbutton_load_news">Load news</string>
 </resources>

@@ -5,12 +5,11 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        LentaNewsEntity::class
+        NewsEntity::class
     ],
     version = 1,
     exportSchema = false
 )
 abstract class NewsDataBase:RoomDatabase() {
-    abstract fun lentaNewsDao(): LentaNewsDao
-
+    abstract fun NewsDao(): NewsDao
 }

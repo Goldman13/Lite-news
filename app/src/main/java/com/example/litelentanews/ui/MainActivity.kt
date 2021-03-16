@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.litelentanews.R
@@ -39,27 +40,18 @@ class MainActivity : AppCompatActivity() {
                 navControler,
                 appBarConfig
         )
-
-        val navView = binding.navigation
-        navView.setupWithNavController(navControler)
-
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
+//
+//        val navView = binding.navigation
+//        navView.setupWithNavController(navControler)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            android.R.id.home -> {
-                binding.drawerMain.apply {
-                    if(isOpen) close()
-                    else open()
-                }
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        android.R.id.home ->{
+            navControler.navigateUp()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
         }
     }
 }
